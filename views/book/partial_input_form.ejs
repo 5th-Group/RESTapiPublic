@@ -1,0 +1,36 @@
+<div>
+    <label>Title</label>
+    <input type="text" name="title" value="<%= book.title %>">
+</div>
+<div>
+    <label for="edition">Edition</label>
+    <select name="edition" id="edition">
+        <% editions.forEach( edition => { %> 
+            <% if (edition._id === book.edition) { %> 
+                <option selected label="<%= edition.type %>" value="<%= edition._id %>">
+            <% } else { %>
+                <option label="<%= edition.type %>" value="<%= edition._id %>">
+            <% } %> 
+        <% }) %>
+    </select>
+</div>
+<div>
+    <label>Page Count</label>
+    <input type="number" name="pageCount" min="1" value="<%= book.pageCount %>">
+</div>
+<div>
+    <label for="lang">Language</label>
+    <input type="text" name="language" id="lang" value="<%= book.language %>">
+</div>
+<div>
+    <label>Publication Date</label>
+    <input type="date" name="publishDate" value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>">
+</div>
+<div>
+    <label>ISBN</label>
+    <input type="text" name="isbn" value="<%= book.isbn %>">
+</div>
+<div>
+    <label for="desc">Description</label>
+    <textarea name="desc" id="desc" cols="50" rows="4"></textarea>
+</div>

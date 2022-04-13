@@ -1,0 +1,17 @@
+<header>
+    <nav>
+        <div>
+            <a href="/">Home</a>
+            <a href="/books">Books</a>
+            <a href="/users">Users</a>
+            <% if(!isAuthenticated) { %>
+            <a href="/users/signup">Sign up</a>
+            <a href="/users/login">Log in</a>
+            <% } else { %>
+            <form action="/users?_method=DELETE" method="POST">
+                <button type="submit">Log out</button>
+            </form>
+            <% } %>
+        </div>
+    </nav>
+</header>
